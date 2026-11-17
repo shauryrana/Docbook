@@ -5,14 +5,14 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem('medislot_token') || null);
+  const [token, setToken] = useState(localStorage.getItem('docbook_token') || null);
   const [loading, setLoading] = useState(true);
 
   // Restore user session on mount
   useEffect(() => {
     const initializeAuth = async () => {
-      const storedToken = localStorage.getItem('medislot_token');
-      const storedUser = localStorage.getItem('medislot_user');
+      const storedToken = localStorage.getItem('docbook_token');
+      const storedUser = localStorage.getItem('docbook_user');
 
       if (storedToken && storedUser) {
         try {
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
           const res = await api.get('/auth/me');
           if (res.data?.user) {
             setUser(res.data.user);
-            localStorage.setItem('medislot_user', JSON.stringify(res.data.user));
+            localStorage.setItem('docbook_user', JSON.stringify(res.data.user));
           }
         } catch (err) {
           console.warn('Session verification failed, logging out:', err.message);
@@ -41,8 +41,8 @@ export const AuthProvider = ({ children }) => {
 
     setToken(receivedToken);
     setUser(receivedUser);
-    localStorage.setItem('medislot_token', receivedToken);
-    localStorage.setItem('medislot_user', JSON.stringify(receivedUser));
+    localStorage.setItem('docbook_token', receivedToken);
+    localStorage.setItem('docbook_user', JSON.stringify(receivedUser));
 
     return receivedUser;
   };
@@ -53,8 +53,8 @@ export const AuthProvider = ({ children }) => {
 
     setToken(receivedToken);
     setUser(receivedUser);
-    localStorage.setItem('medislot_token', receivedToken);
-    localStorage.setItem('medislot_user', JSON.stringify(receivedUser));
+    localStorage.setItem('docbook_token', receivedToken);
+    localStorage.setItem('docbook_user', JSON.stringify(receivedUser));
 
     return receivedUser;
   };
@@ -62,8 +62,8 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     setToken(null);
-    localStorage.removeItem('medislot_token');
-    localStorage.removeItem('medislot_user');
+    localStorage.removeItem('docbook_token');
+    localStorage.removeItem('docbook_user');
   };
 
   const value = {

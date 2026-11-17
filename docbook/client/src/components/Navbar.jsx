@@ -28,8 +28,15 @@ const Navbar = () => {
     <header className="navbar-container">
       <div className="navbar-content">
         <Link to="/" className="navbar-brand">
-          <span className="brand-icon">+</span>
-          <span className="brand-text">MediSlot</span>
+          <span className="brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 6.5C4.5 4.6 6 3 7.9 3S11.3 4.6 11.3 6.5v5.2c0 2.6 2.1 4.8 4.8 4.8s4.8-2.1 4.8-4.8V10" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
+              <circle cx="19" cy="8.5" r="2" fill="white"/>
+              <path d="M4.5 15.5C4.5 17.4 6 19 7.9 19H10" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
+              <circle cx="11" cy="19" r="2" stroke="white" strokeWidth="1.8"/>
+            </svg>
+          </span>
+          <span className="brand-text">Docbook</span>
         </Link>
 
         <nav className="nav-links">

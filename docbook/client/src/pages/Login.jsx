@@ -50,7 +50,7 @@ const Login = () => {
     <div className="auth-wrapper">
       <div className="card">
         <div className="auth-header">
-          <h1>Welcome to MediSlot</h1>
+          <h1>Welcome to Docbook</h1>
           <p>Sign in to access your clinic portal</p>
         </div>
 

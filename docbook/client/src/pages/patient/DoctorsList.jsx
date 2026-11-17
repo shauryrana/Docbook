@@ -43,7 +43,7 @@ const DoctorsList = () => {
       {/* Hero Banner */}
       <div className="hero-banner">
         <div className="hero-text">
-          <h1>Welcome to MediSlot</h1>
+          <h1>Welcome to Docbook</h1>
           <p>Book certified medical specialists with real-time slot reservations</p>
         </div>
         <Link to="/book" className="btn btn-primary">

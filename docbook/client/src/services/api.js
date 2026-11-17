@@ -10,7 +10,7 @@ const api = axios.create({
 // Request interceptor to attach JWT token
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('medislot_token');
+    const token = localStorage.getItem('docbook_token');
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
@@ -25,9 +25,9 @@ api.interceptors.response.use(
   (error) => {
     if (error.response && error.response.status === 401) {
       // Token expired or invalid
-      if (localStorage.getItem('medislot_token')) {
-        localStorage.removeItem('medislot_token');
-        localStorage.removeItem('medislot_user');
+      if (localStorage.getItem('docbook_token')) {
+        localStorage.removeItem('docbook_token');
+        localStorage.removeItem('docbook_user');
         window.location.href = '/login';
       }
     }
